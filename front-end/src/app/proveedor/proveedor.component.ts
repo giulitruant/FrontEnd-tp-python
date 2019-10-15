@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from './proveedor.service';
-import {ProveedorModel} from '../model/proveedor.model'
 
 @Component({
   selector: 'app-proveedor',
@@ -9,20 +9,38 @@ import {ProveedorModel} from '../model/proveedor.model'
   providers: [ProveedorService]
 })
 export class ProveedorComponent implements OnInit {
-
-  private proveedores : Array<ProveedorModel>;
+  private proveedor: ProveedorModel;
+  private proveedores: Array<ProveedorModel>;
   constructor(private proveedorService: ProveedorService) { }
 
   ngOnInit() {
-    this.loadProveedores();
+    this.getAllProveedores();
   }
 
-  private loadProveedores(): void {
-    this.proveedorService.getProveedores().subscribe(value =>{
-      //this.proveedores = value;
+  getAllProveedores() {
+     this.proveedorService.getProveedores()
+     .subscribe(
+       (data) => { // Success
+       this.proveedores = data['proveedor'];
+       },
+       (error) => {
+         console.error(error);
+       });
+     }
+
+  getProveedor(cuit: string) {
+    return this.proveedorService.getProveedor(cuit).subscribe(value => {
+      this.proveedor = value;
       console.log(value);
-      console.log(value[0].id); 
+      console.log(value.cuit);
     });
   }
 
+  addProveedor(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {
+    return this.proveedorService.addProveedor(cuit, nombre, apellido, telefono, email, direccion);
+  }
+
+  deleteProveedor(cuit: string) {
+    return this.deleteProveedor(cuit);
+  }
 }
