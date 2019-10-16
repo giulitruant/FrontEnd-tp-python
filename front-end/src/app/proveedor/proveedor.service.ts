@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { CATCH_ERROR_VAR } from '@angular/compiler/src/output/abstract_emitter';
-import { Observable } from 'rxjs';
 import { ProveedorModel } from '../Model/proveedor';
 
 @Injectable({

@@ -7,11 +7,13 @@ import { ProveedorComponent } from './proveedor/proveedor.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { CreateProveedorComponent } from './create-proveedor/create-proveedor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProveedorComponent
+    ProveedorComponent,
+    CreateProveedorComponent
   ],
   imports: [
     BrowserModule,
