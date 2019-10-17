@@ -5,15 +5,15 @@ import { ProveedorComponent } from './proveedor/proveedor.component';
 import { CreateProveedorComponent } from './create-proveedor/create-proveedor.component';
 
 
-const routes: Routes = [
-  { path: '', redirectTo: '/appComponent', pathMatch: 'full' },
-  { path: 'appComponent', component: AppComponent },
-  { path: 'proveedor', component: ProveedorComponent },
-  { path: 'addProveedor', component: CreateProveedorComponent}
-];
+// const routes: Routes = [
+//   { path: '', redirectTo: '/appComponent', pathMatch: 'full' },
+//   { path: 'appComponent', component: AppComponent },
+//   { path: 'proveedor', component: ProveedorComponent },
+//   { path: 'addProveedor', component: CreateProveedorComponent}
+// ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  // imports: [RouterModule.forRoot()],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
