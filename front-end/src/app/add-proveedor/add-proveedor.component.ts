@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
-import { CreateProveedorService } from './create-proveedor.service';
+import { ProveedorService } from '../service/proveedor.service';
 
 @Component({
-  selector: 'app-create-proveedor',
-  templateUrl: './create-proveedor.component.html',
-  styleUrls: ['./create-proveedor.component.css'],
-  providers: [CreateProveedorService]
+  selector: 'app-add-proveedor',
+  templateUrl: './add-proveedor.component.html',
+  styleUrls: ['./add-proveedor.component.css'],
+  providers: [ProveedorService]
 })
-export class CreateProveedorComponent implements OnInit {
+export class AddProveedorComponent implements OnInit {
 
   private proveedor: ProveedorModel;
   private isValid: boolean = true;
   private message: string = '';
 
-  constructor(private createProveedorService: CreateProveedorService) {
+  constructor(private createProveedorService: ProveedorService) {
     this.proveedor = new ProveedorModel('', '', '', '', '', '');
   }
 

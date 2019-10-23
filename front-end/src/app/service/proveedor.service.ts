@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-import { ProveedorModel } from '../Model/proveedor';
+import { ProveedorModel } from '../model/proveedor';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProveedorService {
-
   constructor(protected http: HttpClient) { }
 
   getProveedores() {

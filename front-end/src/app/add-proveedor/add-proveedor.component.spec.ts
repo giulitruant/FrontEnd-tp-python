@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ProveedorComponent } from './proveedor.component';
+import { AddProveedorComponent } from './add-proveedor.component';
 
-describe('ProveedorComponent', () => {
-  let component: ProveedorComponent;
-  let fixture: ComponentFixture<ProveedorComponent>;
+describe('AddProveedorComponent', () => {
+  let component: AddProveedorComponent;
+  let fixture: ComponentFixture<AddProveedorComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ProveedorComponent ]
+      declarations: [ AddProveedorComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ProveedorComponent);
+    fixture = TestBed.createComponent(AddProveedorComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

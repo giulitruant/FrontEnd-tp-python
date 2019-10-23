@@ -1,38 +1,20 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-import {Routes, RouterModule } from '@angular/router';
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatIconModule} from '@angular/material/icon';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ProveedorComponent } from './proveedor/proveedor.component';
-import { CreateProveedorComponent } from './create-proveedor/create-proveedor.component';
-
-const routes: Routes = [
-  { path: '', redirectTo: '/', pathMatch: 'full' },
-  { path: 'home', component: AppComponent },
-  { path: 'proveedor', component: ProveedorComponent },
-  { path: 'addProveedor', component: CreateProveedorComponent}
-];
+import { ListaProveedorComponent } from './lista-proveedor/lista-proveedor.component';
+import { AddProveedorComponent } from './add-proveedor/add-proveedor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProveedorComponent,
-    CreateProveedorComponent
+    ListaProveedorComponent,
+    AddProveedorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule,
-    RouterModule.forRoot(routes),
-    HttpClientModule,
-    FormsModule,
-    MatIconModule,
-    BrowserAnimationsModule
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

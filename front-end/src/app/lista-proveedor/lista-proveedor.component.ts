@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
-import { ProveedorService } from './proveedor.service';
+import { ProveedorService } from '../service/proveedor.service';
 
 @Component({
-  selector: 'app-proveedor',
-  templateUrl: './proveedor.component.html',
-  styleUrls: ['./proveedor.component.css'],
+  selector: 'app-lista-proveedor',
+  templateUrl: './lista-proveedor.component.html',
+  styleUrls: ['./lista-proveedor.component.css'],
   providers: [ProveedorService]
 })
-export class ProveedorComponent implements OnInit {
+export class ListaProveedorComponent implements OnInit {
   private proveedor: ProveedorModel;
   private proveedores: Array<ProveedorModel>;
   constructor(private proveedorService: ProveedorService) { }
