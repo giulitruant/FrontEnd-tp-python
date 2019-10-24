@@ -22,10 +22,11 @@ export class AddProveedorComponent implements OnInit {
   }
 
   public saveOrUpdate() {
-    this.isValid == this.createProveedorService.validate(this.proveedor.cuit);
+    // this.isValid == this.createProveedorService.validate(this.proveedor.cuit);
 
     if (this.isValid) {
-      this.createProveedorService.addProveedor(this.proveedor);
+      this.createProveedorService.addProveedor(this.proveedor.cuit, this.proveedor.nombre, this.proveedor.apellido, this.proveedor.telefono,
+        this.proveedor.email, this.proveedor.direccion);
       // this.createProveedorService.addProveedor(this.proveedor.cuit, this.proveedor.nombre, this.proveedor.apellido
       //   , this.proveedor.telefono, this.proveedor.email, this.proveedor.direccion);
     } else {

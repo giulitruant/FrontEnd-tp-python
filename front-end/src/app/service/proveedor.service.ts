@@ -17,8 +17,6 @@ export class ProveedorService {
   }
 
   deleteProveedor(cuit: string) {
-    //let data = {'cuit': cuit }
-
     const url = `${'http://127.0.0.1:5000/deleteProveedor'}/${cuit}`;
     const headers = new HttpHeaders ({'Content-Type': 'application/json'});
     return this.http.delete(url, {headers});
@@ -33,11 +31,6 @@ export class ProveedorService {
     'direccion': direccion };
     const headers = new HttpHeaders ({'Content-Type': 'application/json'});
     return this.http.post('http://127.0.0.1:5000/addProveedor', JSON.stringify({data}), {headers});
-
-    //return this.http.post<any>('http://127.0.0.1:5000/addProveedor', JSON.stringify({data}), {headers});
-    //let heroesURL = `${'http://127.0.0.1:5000/addProveedor'}?${data}`;
-    //return this.http.jsonp('http://127.0.0.1:5000/addProveedor')
-
     }
 
   updateProveedor(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {
@@ -53,18 +46,4 @@ export class ProveedorService {
     return this.http.put('http://127.0.0.1:5000/updateProveedor',
     JSON.stringify(bodyObj), {headers});
   }
-
-  // private extractData(res: Response) {
-  //   let body = res.json();
-  //   return body;
-  // }
-
-  // private handleError (error: any) {
-  //   // In a real world app, we might use a remote logging infrastructure
-  //   // We'd also dig deeper into the error to get a better message
-  //   let errMsg = (error.message) ? error.message :
-  //     error.status ? `${error.status} - ${error.statusText}` : 'Server error';
-  //   console.error(errMsg); // log to console instead
-  //   return Observable.throw(errMsg);
-  // }
 }
