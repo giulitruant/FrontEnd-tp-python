@@ -2,18 +2,18 @@
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="/home">Home</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/proveedor">Proveedor</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" routerLink="/addProveedor">Agregar Proveedor</a>
-    </li>
+    </li>    
+    <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown">Proveedor<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li><a routerLink="/proveedor">Lista</a></li>
+          <li><a routerLink="/addProveedor">Agregar Proveedor</a></li>          
+        </ul>
+    </li>     
   </ul>
 </nav>
 <br>
 <div class="container-fluid">
-<!-- <h1>{{title}}</h1> -->
 <router-outlet></router-outlet>
 </div>
 
