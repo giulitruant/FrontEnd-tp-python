@@ -1,1 +1,51 @@
-<p>add-proveedor works!</p>
+
+  <H2>Proveedor</H2>
+  <body>
+  <form class="form-horizontal" name="frmproveedor" novalidate (ngSubmit)="saveOrUpdate()">
+<mat-card>
+  <mat-card-header>
+      Datos del proveedor
+  </mat-card-header>
+  <mat-card-content>
+    <div class="row">
+      <div class="form-group col-sm-4">
+          <label for="lblcuit">Cuit:</label>
+          <input class="form-control col-sm-5" type="number" pattern="[0-9]*" id="cuit"
+          placeholder="xx-xxxxxxx-x"  placeholder="cuit" required>
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+          <label for="lblnombre">Nombre:</label>
+          <input class="form-control col-sm-5" id="nombre" placeholder="nombre"
+          required>
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+          <label for="lblapellido">Apellido:</label>
+          <input class="form-control col-sm-5" id="apellido" placeholder="apellido" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-4">
+          <label for="telefono">Telefono:</label>
+          <input class="form-control col-sm-5" id="telefono" placeholder="telefono" required>
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control col-sm-5" id="email" placeholder="email">
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+          <label for="direccion">Direccion:</label>
+          <input type="direccion" class="form-control col-sm-5" id="direccion" placeholder="direccion" required>
+      </div>
+    </div>
+      <div class="btn">
+          <button type="submit" class="btn btn-info">Cancelar</button>
+          <button type="submit" class="btn btn-info">Guardar</button>
+      </div>
+  </mat-card-content>
+</mat-card>
+</form>
+

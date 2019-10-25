@@ -7,7 +7,8 @@ import { AppComponent } from './app.component';
 import { ListaProveedorComponent } from './lista-proveedor/lista-proveedor.component';
 import { AddProveedorComponent } from './add-proveedor/add-proveedor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatSliderModule } from '@angular/material/slider';
+import { MaterialModule } from './material.module';
+
 
 @NgModule({
   declarations: [
@@ -19,7 +20,7 @@ import { MatSliderModule } from '@angular/material/slider';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSliderModule,
+    MaterialModule,
     HttpClientModule
   ],
   providers: [],
