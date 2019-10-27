@@ -1,51 +1,71 @@
+<H2>Proveedor</H2>
+<body>
 
-  <H2>Proveedor</H2>
-  <body>
-  <form class="form-horizontal" name="frmproveedor" novalidate (ngSubmit)="saveOrUpdate()">
 <mat-card>
   <mat-card-header>
       Datos del proveedor
   </mat-card-header>
   <mat-card-content>
+      <!-- <form class=" form-horizontal" #p="ngForm" (ngsubmit)="onSubmit(p)" novalidate> -->
+          <form #Proveedor="ngForm" (ngSubmit)="onSubmit(Proveedor)">
     <div class="row">
       <div class="form-group col-sm-4">
-          <label for="lblcuit">Cuit:</label>
-          <input class="form-control col-sm-5" type="number" pattern="[0-9]*" id="cuit"
-          placeholder="xx-xxxxxxx-x"  placeholder="cuit" required>
+          <label>Cuit:</label>
+          <input class="form-control col-sm-5" type="number" pattern="[0-9]*" name="cuit"
+          placeholder="xx-xxxxxxx-x"  placeholder="cuit" required ngModel>
       </div>
-      <br>
+      <!-- <div class="form-group">
+          <label>Name</label>
+          <input type="text" class="form-control" name="name" ngModel>
+        </div>
+       -->
       <div class="form-group col-sm-4">
           <label for="lblnombre">Nombre:</label>
-          <input class="form-control col-sm-5" id="nombre" placeholder="nombre"
-          required>
+          <input class="form-control col-sm-5" name="nombre" ngModel placeholder="nombre" required>
       </div>
       <br>
       <div class="form-group col-sm-4">
           <label for="lblapellido">Apellido:</label>
-          <input class="form-control col-sm-5" id="apellido" placeholder="apellido" required>
+          <input class="form-control col-sm-5" name="apellido" ngModel placeholder="apellido" required>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-sm-4">
           <label for="telefono">Telefono:</label>
-          <input class="form-control col-sm-5" id="telefono" placeholder="telefono" required>
+          <input class="form-control col-sm-5" name="telefono" ngModel placeholder="telefono" required>
       </div>
       <br>
       <div class="form-group col-sm-4">
           <label for="email">Email:</label>
-          <input type="email" class="form-control col-sm-5" id="email" placeholder="email">
+          <input type="email" class="form-control col-sm-5" name="email" ngModel placeholder="email">
       </div>
       <br>
       <div class="form-group col-sm-4">
           <label for="direccion">Direccion:</label>
-          <input type="direccion" class="form-control col-sm-5" id="direccion" placeholder="direccion" required>
+          <input type="direccion" class="form-control col-sm-5" name="direccion" ngModel placeholder="direccion" required>
       </div>
     </div>
       <div class="btn">
-          <button type="submit" class="btn btn-info">Cancelar</button>
-          <button type="submit" class="btn btn-info">Guardar</button>
+          <button type="button" class="btn btn-info">Cancelar</button>
+          <button  type="submit" class="btn btn-info">Guardar</button>
+          <button type="submit" class="btn btn-primary">Submit</button>
       </div>
+      </form>
   </mat-card-content>
 </mat-card>
-</form>
 
+
+<!-- <div class="container">
+  <h2>  User Data </h2>
+  <form #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value.name)">
+    <div class="form-group">
+      <label>Name</label>
+      <input type="text" class="form-control" name="name" ngModel>
+    </div>
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" name="email" ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div> -->

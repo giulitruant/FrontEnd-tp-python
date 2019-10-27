@@ -8,6 +8,7 @@ import { ListaProveedorComponent } from './lista-proveedor/lista-proveedor.compo
 import { AddProveedorComponent } from './add-proveedor/add-proveedor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import {FormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MaterialModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

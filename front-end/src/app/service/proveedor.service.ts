@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { ProveedorModel } from '../model/proveedor';
+import { JsonPipe } from '@angular/common';
 
 @Injectable({
   providedIn: 'root'
@@ -26,11 +27,12 @@ export class ProveedorService {
     let data = {'cuit': cuit,
     'nombre': nombre,
     'apellido': apellido,
-    'tel': telefono,
+    'telefono': telefono,
     'email': email,
     'direccion': direccion };
+    let params = "json="+JSON.stringify({data});
     const headers = new HttpHeaders ({'Content-Type': 'application/json'});
-    return this.http.post('http://127.0.0.1:5000/addProveedor', JSON.stringify({data}), {headers});
+    return this.http.post('http://127.0.0.1:5000/addProveedor', params, {headers});
     }
 
   updateProveedor(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {
