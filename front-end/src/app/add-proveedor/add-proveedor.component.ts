@@ -31,8 +31,7 @@ export class AddProveedorComponent implements OnInit {
     // this.proveedor.direccion = value.controls.cuit.value;
 
     if (this.isValid) {
-      this.createProveedorService.addProveedor(this.proveedor.cuit.toString(), this.proveedor.nombre, this.proveedor.apellido, this.proveedor.telefono,
-        this.proveedor.email, this.proveedor.direccion.toString());
+      this.createProveedorService.addProveedor(this.proveedor);
       } else {
         this.message = 'Verificar los campos obligatorios';
       }

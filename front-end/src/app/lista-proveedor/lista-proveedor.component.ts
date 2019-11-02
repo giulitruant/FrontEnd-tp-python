@@ -36,9 +36,9 @@ export class ListaProveedorComponent implements OnInit {
     });
   }
 
-  addProveedor(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {
-    return this.proveedorService.addProveedor(cuit, nombre, apellido, telefono, email, direccion);
-  }
+  // addProveedor(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {
+  //   return this.proveedorService.addProveedor(cuit, nombre, apellido, telefono, email, direccion);
+  // }
 
   deleteProveedor(cuit: string) {
     return this.deleteProveedor(cuit);
