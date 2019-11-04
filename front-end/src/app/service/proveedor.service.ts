@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { ProveedorModel } from '../model/proveedor';
 import { throwError } from 'rxjs';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -30,14 +31,16 @@ export class ProveedorService {
   }
 
   addProveedor(proveedor: ProveedorModel) {
-    // const headers = new HttpHeaders({'Content-Type':  'application/json'});
+    const headers = new HttpHeaders({'Content-Type':  'application/json'});
     // let json = JSON.stringify(proveedor);
-    // console.dir(json);
-    return this.http.post('http://127.0.0.1:5000/addProveedor', proveedor).toPromise().then(function(value) {
+    // console.dir(json);    
+    return this.http.post('http://127.0.0.1:5000/addProveedor', proveedor).toPromise()
+    .then(function(value) {
       console.dir(value);
     }), (error) => {
       console.dir('Promise rejected with ' + JSON.stringify(error));
     };
+
   }
 
   updateProveedor(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {

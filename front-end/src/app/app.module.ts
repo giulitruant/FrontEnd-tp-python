@@ -9,13 +9,17 @@ import { AddProveedorComponent } from './add-proveedor/add-proveedor.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import {FormsModule} from '@angular/forms';
+import { AddClienteComponent } from './add-cliente/add-cliente.component';
+import { ListaClienteComponent } from './lista-cliente/lista-cliente.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaProveedorComponent,
-    AddProveedorComponent
+    AddProveedorComponent,
+    AddClienteComponent,
+    ListaClienteComponent
   ],
   imports: [
     BrowserModule,

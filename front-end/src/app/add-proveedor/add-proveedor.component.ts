@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from '../service/proveedor.service';
-import {NgForm} from '@angular/forms';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA}  from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-proveedor',
@@ -13,8 +13,11 @@ export class AddProveedorComponent implements OnInit {
   proveedor: ProveedorModel;
   public isValid: boolean =  true;
   public message: string = '';
+  public rta: any;
+  public popupProv: boolean = false; 
 
-  constructor(private createProveedorService: ProveedorService) {
+  constructor(private createProveedorService: ProveedorService,
+    public dialog: MatDialog) {
     this.proveedor = new ProveedorModel('', '', '', '', '', '');
   }
 
@@ -22,22 +25,15 @@ export class AddProveedorComponent implements OnInit {
   }
 
   onSubmit(value: any) {
-    console.log(value);
-    // this.proveedor.cuit = value.controls.cuit.value;
-    // this.proveedor.nombre = value.controls.nombre.value;
-    // this.proveedor.apellido = value.controls.apellido.value;
-    // this.proveedor.email = value.controls.email.value;
-    // this.proveedor.telefono = value.controls.telefono.value;
-    // this.proveedor.direccion = value.controls.cuit.value;
-
+    //console.log(value);
     if (this.isValid) {
-      this.createProveedorService.addProveedor(this.proveedor);
+      this.rta = this.createProveedorService.addProveedor(this.proveedor);
+      if(<string>this.message == "ok"){
+        this.proveedor = null;        
+      }
       } else {
         this.message = 'Verificar los campos obligatorios';
       }
-
  }
-
-  // public save(proveedor: ProveedorModel): void {
-  // }
+ 
 }
