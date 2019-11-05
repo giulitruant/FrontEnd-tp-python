@@ -11,7 +11,14 @@ import { ProveedorService } from '../service/proveedor.service';
 export class ListaProveedorComponent implements OnInit {
   private proveedor: ProveedorModel;
   private proveedores: Array<ProveedorModel>;
-  constructor(private proveedorService: ProveedorService) { }
+  public selectedRow: Number;
+  public setClickedRow: Function;
+
+  constructor(private proveedorService: ProveedorService) {
+    this.setClickedRow = function(index) {
+      this.selectedRow = index;
+    }
+   }
 
   ngOnInit() {
     this.getAllProveedores();

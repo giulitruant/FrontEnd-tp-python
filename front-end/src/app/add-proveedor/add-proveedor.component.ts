@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from '../service/proveedor.service';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA}  from '@angular/material/dialog';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-proveedor',
@@ -14,7 +14,7 @@ export class AddProveedorComponent implements OnInit {
   public isValid: boolean =  true;
   public message: string = '';
   public rta: any;
-  public popupProv: boolean = false; 
+  public popupProv: boolean = false;
 
   constructor(private createProveedorService: ProveedorService,
     public dialog: MatDialog) {
@@ -29,11 +29,12 @@ export class AddProveedorComponent implements OnInit {
     if (this.isValid) {
       this.rta = this.createProveedorService.addProveedor(this.proveedor);
       if(<string>this.message == "ok"){
-        this.proveedor = null;        
+        this.proveedor = null;
       }
       } else {
+        this.popupProv = true;
         this.message = 'Verificar los campos obligatorios';
       }
  }
- 
+
 }
