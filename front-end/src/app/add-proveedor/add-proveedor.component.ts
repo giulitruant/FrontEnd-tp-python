@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from '../service/proveedor.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-add-proveedor',
@@ -10,18 +11,23 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
   providers: [ProveedorService]
 })
 export class AddProveedorComponent implements OnInit {
-  proveedor: ProveedorModel;
+  public proveedor: ProveedorModel;
   public isValid: boolean =  true;
   public message: string = '';
   public rta: any;
   public popupProv: boolean = false;
 
-  constructor(private createProveedorService: ProveedorService,
+  constructor(private createProveedorService: ProveedorService, private activatedRoute: ActivatedRoute,
     public dialog: MatDialog) {
     this.proveedor = new ProveedorModel('', '', '', '', '', '');
   }
 
   ngOnInit() {
+    debugger;
+    this.activatedRoute.snapshot.paramMap.get('cuit');
+    this.activatedRoute.data.subscribe(data => {
+      this.proveedor.cuit = <any>data;
+    })
   }
 
   onSubmit(value: any) {

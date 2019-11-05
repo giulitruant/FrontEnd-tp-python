@@ -22,8 +22,8 @@
         <td>{{ item.telefono }}</td>
         <td>{{ item.email }}</td>
         <td>{{ item.direccion }}</td>
-        <button mat-button (click)="Editar">editar</button>
-        <button mat-button (click)="Eliminar">eliminar</button>
+        <button mat-button (click)="editProveedor(item)">editar</button>
+        <button mat-button (click)="deleteProveedor(item.cuit)">eliminar</button>
     </tr>
   </tbody>
 </table>

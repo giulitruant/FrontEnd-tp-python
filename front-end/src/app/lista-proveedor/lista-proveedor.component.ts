@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from '../service/proveedor.service';
+import { AddProveedorComponent } from '../add-proveedor/add-proveedor.component';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-lista-proveedor',
@@ -14,11 +16,8 @@ export class ListaProveedorComponent implements OnInit {
   public selectedRow: Number;
   public setClickedRow: Function;
 
-  constructor(private proveedorService: ProveedorService) {
-    this.setClickedRow = function(index) {
-      this.selectedRow = index;
-    }
-   }
+  constructor(private proveedorService: ProveedorService, private activatedRoute: ActivatedRoute,
+     private router: Router) { }
 
   ngOnInit() {
     this.getAllProveedores();
@@ -48,6 +47,14 @@ export class ListaProveedorComponent implements OnInit {
   // }
 
   deleteProveedor(cuit: string) {
+    console.dir('Eliminar cuit' + cuit);
     return this.deleteProveedor(cuit);
+  }
+
+  editProveedor(proveedor: ProveedorModel) {
+    console.dir('Eliminar proveedor' + JSON.stringify(proveedor));
+    debugger;
+    
+    this.router.navigate(['/addProveedor', this.proveedor.cuit]);
   }
 }
