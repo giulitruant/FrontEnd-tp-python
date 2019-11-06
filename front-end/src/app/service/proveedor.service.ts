@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
 import { ProveedorModel } from '../model/proveedor';
-import { throwError } from 'rxjs';
+import { throwError, Observable } from 'rxjs';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 const httpOptions = {
@@ -16,12 +16,13 @@ const httpOptions = {
 export class ProveedorService {
   constructor(protected http: HttpClient) { }
 
-  getProveedores() {
+  getProveedores(): Observable<ProveedorModel[]> {
     return this.http.get<ProveedorModel[]>('http://127.0.0.1:5000/getProveedores');
   }
 
-  getProveedor(cuit: string) {
-    return this.http.get<ProveedorModel>('http://127.0.0.1:5000/getProveedores?cuit=' + cuit);
+  getProveedor(cuit: string): Observable<ProveedorModel> {
+    return this.http.get<ProveedorModel>('http://127.0.0.1:5000/getProveedor?cuit=' + cuit);
+
   }
 
   deleteProveedor(cuit: string) {
@@ -33,7 +34,7 @@ export class ProveedorService {
   addProveedor(proveedor: ProveedorModel) {
     const headers = new HttpHeaders({'Content-Type':  'application/json'});
     // let json = JSON.stringify(proveedor);
-    // console.dir(json);    
+    // console.dir(json);
     return this.http.post('http://127.0.0.1:5000/addProveedor', proveedor).toPromise()
     .then(function(value) {
       console.dir(value);

@@ -42,18 +42,19 @@
       </div>
     </div>
       <div class="btn">
-          <button type="button" class="btn btn-info">Cancelar</button>
+          <button type="button" [routerLink]="['/proveedor']" routerLinkActive="router-link-active"  class="btn btn-info">Cancelar</button>
           <button  type="submit" class="btn btn-info">Guardar</button>
           <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
       </div>
       </form>
   </mat-card-content>
 </mat-card>
+<!--
 <div ng-if="popupProv">
   <h1 mat-dialog-title>Favorite Animal</h1>
 <div mat-dialog-content>
   No se pudo agregar el proveedor
-  <!-- <ul>
+   <ul>
     <li>
       <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
     </li>
@@ -63,6 +64,6 @@
     <li>
       <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
     </li>
-  </ul> -->
+  </ul>
   <button mat-button mat-dialog-close>Ok</button>
-</div>
+</div>-->

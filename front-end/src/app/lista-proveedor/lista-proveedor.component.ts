@@ -47,14 +47,14 @@ export class ListaProveedorComponent implements OnInit {
   // }
 
   deleteProveedor(cuit: string) {
+    debugger;
     console.dir('Eliminar cuit' + cuit);
-    return this.deleteProveedor(cuit);
+    return this.proveedorService.deleteProveedor(cuit);
   }
 
   editProveedor(proveedor: ProveedorModel) {
-    console.dir('Eliminar proveedor' + JSON.stringify(proveedor));
-    debugger;
-    
-    this.router.navigate(['/addProveedor', proveedor]);
+    //console.dir('Eliminar proveedor' + JSON.stringify(proveedor));
+    this.router.navigate(['./addProveedor', proveedor.cuit, proveedor.nombre, proveedor.apellido, proveedor.direccion,
+  proveedor.email, proveedor.telefono]);
   }
 }
