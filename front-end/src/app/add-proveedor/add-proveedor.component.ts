@@ -24,10 +24,13 @@ export class AddProveedorComponent implements OnInit {
 
   ngOnInit() {
     debugger;
-    this.activatedRoute.snapshot.paramMap.get('cuit');
-    this.activatedRoute.data.subscribe(data => {
-      this.proveedor.cuit = <any>data;
-    })
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.proveedor = params['proveedor'];
+    });
+    // this.activatedRoute.snapshot.paramMap.get('proveedor');
+    // this.activatedRoute.data.subscribe(data => {
+    //   this.proveedor.cuit = <any>data;
+    // })
   }
 
   onSubmit(value: any) {

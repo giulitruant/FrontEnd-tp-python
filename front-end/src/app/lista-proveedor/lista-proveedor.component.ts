@@ -55,6 +55,6 @@ export class ListaProveedorComponent implements OnInit {
     console.dir('Eliminar proveedor' + JSON.stringify(proveedor));
     debugger;
     
-    this.router.navigate(['/addProveedor', this.proveedor.cuit]);
+    this.router.navigate(['/addProveedor', proveedor]);
   }
 }

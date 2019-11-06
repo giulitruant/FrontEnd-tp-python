@@ -9,7 +9,7 @@ import { AddProveedorComponent } from './add-proveedor/add-proveedor.component';
 const routes: Routes = [
   { path: 'home', component: AppComponent },
   { path: 'proveedor', component: ListaProveedorComponent },
-  { path: 'addProveedor/:cuit', component: AddProveedorComponent }
+  { path: 'addProveedor/:proveedor', component: AddProveedorComponent }
 ];
 
 @NgModule({
