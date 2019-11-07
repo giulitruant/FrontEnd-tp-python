@@ -2,19 +2,19 @@
   <ul class="navbar-nav">
     <li class="nav-item">
       <a class="nav-link" href="/home">Home</a>
-    </li>    
+    </li>
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown">Proveedor<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a routerLink="/proveedor">Lista</a></li>
-          <li><a routerLink="/addProveedor">Agregar Proveedor</a></li>          
+          <li><a [routerLink]="['/addProveedor/:cuit/:nombre/:apellido/:telefono/:direccion/:email']" routerLinkActive="router-link-active" >Agregar Proveedor</a></li>          <!--routerLink="/addProveedor"-->
         </ul>
     </li>
     <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" data-toggle="dropdown">Cliente<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a routerLink="/cliente">Lista</a></li>
-          <li><a routerLink="/addCliente">Agregar Cliente</a></li>
+          <li><a [routerLink]="['/addCliente']" routerLinkActive="router-link-active"  >Agregar Cliente</a></li><!--routerLink="/addCliente"-->
         </ul>
     </li>
   </ul>

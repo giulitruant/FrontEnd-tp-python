@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { ProveedorModel } from '../model/proveedor';
-import { throwError, Observable } from 'rxjs';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -27,20 +26,25 @@ export class ProveedorService {
 
   deleteProveedor(cuit: string) {
     const url = `${'http://127.0.0.1:5000/deleteProveedor'}/${cuit}`;
-    const headers = new HttpHeaders ({'Content-Type': 'application/json'});
-    return this.http.delete(url, {headers});
+    // const headers = new HttpHeaders ({'Content-Type': 'application/json'});
+    // const params = new HttpParams().set('cuit', cuit);
+    return this.http.delete(url).toPromise();
+    // .subscribe(
+    //   result => console.log(result),
+    //   err => console.error(err)
+    // ); //.toPromise();
   }
 
   addProveedor(proveedor: ProveedorModel) {
     const headers = new HttpHeaders({'Content-Type':  'application/json'});
     // let json = JSON.stringify(proveedor);
     // console.dir(json);
-    return this.http.post('http://127.0.0.1:5000/addProveedor', proveedor).toPromise()
-    .then(function(value) {
-      console.dir(value);
-    }), (error) => {
-      console.dir('Promise rejected with ' + JSON.stringify(error));
-    };
+    return this.http.post('http://127.0.0.1:5000/addProveedor', proveedor).toPromise();
+    // .then(function(value) {
+    //   console.dir(value);
+    // }), (error) => {
+    //   console.dir('Promise rejected with ' + JSON.stringify(error));
+    // };
 
   }
 

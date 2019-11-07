@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from '../service/proveedor.service';
 // import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ActivatedRoute, Params } from '@angular/router';
+import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -18,7 +18,9 @@ export class AddProveedorComponent implements OnInit {
   public rta: any;
   public popupProv: boolean = false;
 
-  constructor(private createProveedorService: ProveedorService, private activatedRoute: ActivatedRoute) {
+  constructor(private createProveedorService: ProveedorService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute) {
     this.proveedor = new ProveedorModel('', '', '', '', '', '');
   }
 
@@ -32,7 +34,12 @@ export class AddProveedorComponent implements OnInit {
       this.proveedor.telefono = params['telefono'];
     });
 
+    debugger;
+    if (this.proveedor.cuit === ":cuit") {
+      this.proveedor = new ProveedorModel('', '', '', '', '', '');
+    }
     console.dir(JSON.stringify(this.proveedor));
+
     // this.getProveedor(this.proveedor.cuit);
     // this.activatedRoute.snapshot.paramMap.get('proveedor');
     // this.activatedRoute.data.subscribe(data => {
@@ -40,12 +47,12 @@ export class AddProveedorComponent implements OnInit {
     // })
   }
 
-  onSubmit(value: any) {
-    debugger;
+  onSubmit(value: ProveedorModel) {
     if (this.isValid) {
       this.rta = this.createProveedorService.addProveedor(this.proveedor);
-      if(<string>this.message == "ok"){
-        this.proveedor = null;
+      if(<string>this.message === "ok") {
+        this.proveedor = new ProveedorModel('', '', '', '', '', '');
+        this.router.navigate(['/proveedor']);
       }
       } else {
         this.popupProv = true;

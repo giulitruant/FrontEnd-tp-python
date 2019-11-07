@@ -42,10 +42,6 @@ export class ListaProveedorComponent implements OnInit {
     });
   }
 
-  // addProveedor(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {
-  //   return this.proveedorService.addProveedor(cuit, nombre, apellido, telefono, email, direccion);
-  // }
-
   deleteProveedor(cuit: string) {
     debugger;
     console.dir('Eliminar cuit' + cuit);
@@ -53,8 +49,9 @@ export class ListaProveedorComponent implements OnInit {
   }
 
   editProveedor(proveedor: ProveedorModel) {
-    //console.dir('Eliminar proveedor' + JSON.stringify(proveedor));
-    this.router.navigate(['./addProveedor', proveedor.cuit, proveedor.nombre, proveedor.apellido, proveedor.direccion,
-  proveedor.email, proveedor.telefono]);
+    this.router.navigate(['./addProveedor', proveedor.cuit, proveedor.nombre,
+                                          proveedor.apellido, proveedor.direccion,
+                                          proveedor.email, proveedor.telefono]);
+    this.router.navigate(['proveedor']);
   }
 }
