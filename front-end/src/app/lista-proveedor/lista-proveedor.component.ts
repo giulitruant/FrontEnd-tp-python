@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from '../service/proveedor.service';
-import { AddProveedorComponent } from '../add-proveedor/add-proveedor.component';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -29,7 +28,7 @@ export class ListaProveedorComponent implements OnInit {
        (data) => { // Success
        this.proveedores = data['proveedor'];
        },
-       (error) => {
+       (error) => { //error
          console.error(error);
        });
      }
@@ -37,14 +36,13 @@ export class ListaProveedorComponent implements OnInit {
   getProveedor(cuit: string) {
     return this.proveedorService.getProveedor(cuit).subscribe(value => {
       this.proveedor = value;
-      console.log(value);
-      console.log(value.cuit);
+      // console.log(value);
+      // console.log(value.cuit);
     });
   }
 
   deleteProveedor(cuit: string) {
-    debugger;
-    console.dir('Eliminar cuit' + cuit);
+    //console.dir('Eliminar cuit' + cuit);
     return this.proveedorService.deleteProveedor(cuit);
   }
 
@@ -52,6 +50,6 @@ export class ListaProveedorComponent implements OnInit {
     this.router.navigate(['./addProveedor', proveedor.cuit, proveedor.nombre,
                                           proveedor.apellido, proveedor.direccion,
                                           proveedor.email, proveedor.telefono]);
-    this.router.navigate(['proveedor']);
+    //this.router.navigate(['proveedor']);
   }
 }

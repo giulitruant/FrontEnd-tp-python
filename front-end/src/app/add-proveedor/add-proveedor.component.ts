@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ProveedorModel } from '../Model/proveedor';
 import { ProveedorService } from '../service/proveedor.service';
-// import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-add-proveedor',
@@ -38,13 +36,7 @@ export class AddProveedorComponent implements OnInit {
     if (this.proveedor.cuit === ":cuit") {
       this.proveedor = new ProveedorModel('', '', '', '', '', '');
     }
-    console.dir(JSON.stringify(this.proveedor));
-
-    // this.getProveedor(this.proveedor.cuit);
-    // this.activatedRoute.snapshot.paramMap.get('proveedor');
-    // this.activatedRoute.data.subscribe(data => {
-    //   this.proveedor.cuit = <any>data;
-    // })
+    //console.dir(JSON.stringify(this.proveedor));
   }
 
   onSubmit(value: ProveedorModel) {

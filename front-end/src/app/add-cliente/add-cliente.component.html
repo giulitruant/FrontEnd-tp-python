@@ -1,1 +1,51 @@
 <p>add-cliente works!</p>
+<H2>Cliente</H2>
+<body>
+<mat-card>
+  <mat-card-header>
+      Datos del cliente
+      <div *ngIf="!isValid" class="alert alert-danger" role="alert">
+        <strong>{{message}}</strong>
+      </div>
+  </mat-card-header>
+  <mat-card-content>
+          <form #Cliente="ngForm" (ngSubmit)="onSubmit(cliente)">
+    <div class="row">
+      <div class="form-group col-sm-4">
+          <label>DNI::</label>
+          <input class="form-control col-sm-5" type="number" pattern="[0-9]*" name="dni" id="dni"
+          placeholder="xx-xxxxxxx-x"  placeholder="dni" required [(ngModel)]="cliente.dni">
+      </div>
+      <div class="form-group col-sm-4">
+          <label for="lblnombre">Nombre:</label>
+          <input class="form-control col-sm-5" name="nombre" [(ngModel)]="cliente.nombre" placeholder="nombre" required>
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+          <label for="lblapellido">Apellido:</label>
+          <input class="form-control col-sm-5" name="apellido" [(ngModel)]="cliente.apellido" placeholder="apellido" required>
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-sm-4">
+          <label for="telefono">Telefono:</label>
+          <input class="form-control col-sm-5" name="telefono" [(ngModel)]="cliente.tel" placeholder="telefono" required>
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+          <label for="email">Email:</label>
+          <input type="email" class="form-control col-sm-5" name="email" [(ngModel)]="cliente.email" placeholder="email">
+      </div>
+      <br>
+      <div class="form-group col-sm-4">
+          <label for="direccion">Direccion:</label>
+          <input type="direccion" class="form-control col-sm-5" name="direccion" [(ngModel)]="cliente.direccion" placeholder="direccion" required>
+      </div>
+    </div>
+      <div class="btn">
+          <button type="button" [routerLink]="['/cliente']" routerLinkActive="router-link-active"  class="btn btn-info">Cancelar</button>
+          <button  type="submit" class="btn btn-info">Guardar</button>
+      </div>
+      </form>
+  </mat-card-content>
+</mat-card>

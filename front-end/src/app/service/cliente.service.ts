@@ -14,13 +14,13 @@ export class ClienteService {
     return this.http.get<ClienteModel[]>('http://127.0.0.1:5000/getClientes');
   }
 
-  getCliente(id: string): Observable<ClienteModel> {
-    return this.http.get<ClienteModel>('http://127.0.0.1:5000/getCliente?id=' + id);
+  getCliente(dni: number): Observable<ClienteModel> {
+    return this.http.get<ClienteModel>('http://127.0.0.1:5000/getCliente?id=' + dni);
 
   }
 
-  deleteCliente(id: string) {
-    const url = `${'http://127.0.0.1:5000/deleteCliente'}/${id}`;
+  deleteCliente(dni: number) {
+    const url = `${'http://127.0.0.1:5000/deleteCliente'}/${dni}`;
     // const headers = new HttpHeaders ({'Content-Type': 'application/json'});
     // const params = new HttpParams().set('cuit', cuit);
     return this.http.delete(url).toPromise();
@@ -41,13 +41,14 @@ export class ClienteService {
 
   }
 
-  updateCliente(cuit: string, nombre: string, apellido: string, telefono: string, email: string, direccion: string) {
+  updateCliente(c: ClienteModel) {
     let bodyObj = {
-      'cuit': cuit,
-      'nombre': nombre,
-      'tel': telefono,
-      'email': email,
-      'direccion': direccion
+      'dni': c.dni,
+      'nombre': c.nombre,
+      'apellido': c.apellido,
+      'direccion': c.direccion,
+      'tel': c.tel,
+      'email': c.email
     };
 
     const headers = new HttpHeaders ({'Content-Type': 'application/json'});

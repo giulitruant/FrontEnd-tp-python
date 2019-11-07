@@ -14,7 +14,7 @@
     <a class="nav-link dropdown-toggle" data-toggle="dropdown">Cliente<span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a routerLink="/cliente">Lista</a></li>
-          <li><a [routerLink]="['/addCliente']" routerLinkActive="router-link-active"  >Agregar Cliente</a></li><!--routerLink="/addCliente"-->
+          <li><a [routerLink]="['/addCliente/:dni/:nombre/:apellido/:tel/:direccion/:email']" routerLinkActive="router-link-active"  >Agregar Cliente</a></li><!--routerLink="/addCliente"-->
         </ul>
     </li>
   </ul>
