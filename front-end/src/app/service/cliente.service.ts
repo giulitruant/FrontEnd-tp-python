@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import { ProveedorModel } from '../model/proveedor';
+import { ClienteModel } from '../model/cliente';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -10,12 +10,12 @@ export class ClienteService {
 
   constructor(protected http: HttpClient) { }
 
-  getClientes(): Observable<ProveedorModel[]> {
-    return this.http.get<ProveedorModel[]>('http://127.0.0.1:5000/getClientes');
+  getClientes(): Observable<ClienteModel[]> {
+    return this.http.get<ClienteModel[]>('http://127.0.0.1:5000/getClientes');
   }
 
-  getCliente(id: string): Observable<ProveedorModel> {
-    return this.http.get<ProveedorModel>('http://127.0.0.1:5000/getCliente?id=' + id);
+  getCliente(id: string): Observable<ClienteModel> {
+    return this.http.get<ClienteModel>('http://127.0.0.1:5000/getCliente?id=' + id);
 
   }
 
@@ -30,11 +30,9 @@ export class ClienteService {
     // ); //.toPromise();
   }
 
-  addCliente(proveedor: ProveedorModel) {
+  addCliente(cliente: ClienteModel) {
     const headers = new HttpHeaders({'Content-Type':  'application/json'});
-    // let json = JSON.stringify(proveedor);
-    // console.dir(json);
-    return this.http.post('http://127.0.0.1:5000/addCliente', proveedor).toPromise();
+    return this.http.post('http://127.0.0.1:5000/addCliente', cliente).toPromise();
     // .then(function(value) {
     //   console.dir(value);
     // }), (error) => {
