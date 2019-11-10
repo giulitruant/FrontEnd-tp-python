@@ -53,7 +53,6 @@ export class AddClienteComponent implements OnInit {
         this.message = 'Verificar los campos obligatorios';
       }
     } else {
-
       this.rta = this.createClienteService.updateCliente(this.cliente);
       if(<string>this.message === "ok") {
         this.cliente = new ClienteModel(undefined, '', '', '', '', '');

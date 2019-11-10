@@ -12,8 +12,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class ListaProveedorComponent implements OnInit {
   private proveedor: ProveedorModel;
   private proveedores: Array<ProveedorModel>;
-  public selectedRow: Number;
-  public setClickedRow: Function;
+  // public selectedRow: Number;
+  // public setClickedRow: Function;
 
   constructor(private proveedorService: ProveedorService, private activatedRoute: ActivatedRoute,
      private router: Router) { }

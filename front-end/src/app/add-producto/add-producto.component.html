@@ -1,45 +1,45 @@
-<H2>Proveedor</H2>
+<H2>Producto</H2>
 <body>
 <mat-card>
   <mat-card-header>
-      Datos del proveedor
+      Datos de producto
       <div *ngIf="!isValid" class="alert alert-danger" role="alert">
         <strong>{{message}}</strong>
       </div>
   </mat-card-header>
   <mat-card-content>
-          <form #Proveedor="ngForm" (ngSubmit)="onSubmit(Proveedor)">
+          <form #Producto="ngForm" (ngSubmit)="onSubmit(producto)">
     <div class="row">
       <div class="form-group col-sm-4">
-          <label>Cuit:</label>
-          <input class="form-control col-sm-5" type="number" pattern="[0-9]*" name="cuit" id="cuit"
-          placeholder="xx-xxxxxxx-x"  placeholder="cuit" required [(ngModel)]="proveedor.cuit">
+          <label>id:</label>
+          <input class="form-control col-sm-5" type="number" pattern="[0-9]*" name="id" id="id"
+          placeholder="xx-xxxxxxx-x"  placeholder="id" required [(ngModel)]="producto.id">
       </div>
       <div class="form-group col-sm-4">
-          <label for="lblnombre">Nombre:</label>
-          <input class="form-control col-sm-5" name="nombre" [(ngModel)]="proveedor.nombre" placeholder="nombre" required>
+          <label for="lbldesc">Descripcion:</label>
+          <input class="form-control col-sm-5" name="descripcion" [(ngModel)]="producto.descripcion" placeholder="descripcion" required>
       </div>
       <br>
       <div class="form-group col-sm-4">
-          <label for="lblapellido">Apellido:</label>
-          <input class="form-control col-sm-5" name="apellido" [(ngModel)]="proveedor.apellido" placeholder="apellido" required>
+          <label for="lblPrecioU">precio unitario:</label>
+          <input class="form-control col-sm-5" name="precioU" [(ngModel)]="producto.precioU" placeholder="precio unitario" required>
       </div>
     </div>
     <div class="row">
       <div class="form-group col-sm-4">
-          <label for="telefono">Telefono:</label>
-          <input class="form-control col-sm-5" name="telefono" [(ngModel)]="proveedor.telefono" placeholder="telefono" required>
+          <label for="lblStock">stock:</label>
+          <input class="form-control col-sm-5" name="stock" [(ngModel)]="producto.stock" placeholder="stock" required>
       </div>
       <br>
       <div class="form-group col-sm-4">
           <label for="email">Email:</label>
-          <input type="email" class="form-control col-sm-5" name="email" [(ngModel)]="proveedor.email" placeholder="email">
+          <input type="email" class="form-control col-sm-5" name="email" [(ngModel)]="producto.cantMin" placeholder="cantidad minima">
       </div>
       <br>
-      <div class="form-group col-sm-4">
+      <!-- <div class="form-group col-sm-4">
           <label for="direccion">Direccion:</label>
-          <input type="direccion" class="form-control col-sm-5" name="direccion" [(ngModel)]="proveedor.direccion" placeholder="direccion" required>
-      </div>
+          <input type="direccion" class="form-control col-sm-5" name="direccion" [(ngModel)]="producto.direccion" placeholder="direccion" required>
+      </div> -->
     </div>
       <div class="btn">
           <button type="button" [routerLink]="['/proveedor']" routerLinkActive="router-link-active"  class="btn btn-info">Cancelar</button>
@@ -66,3 +66,4 @@
   </ul>
   <button mat-button mat-dialog-close>Ok</button>
 </div>-->
+

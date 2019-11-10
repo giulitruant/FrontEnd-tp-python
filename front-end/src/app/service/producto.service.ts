@@ -10,17 +10,17 @@ export class ProductoService {
 
   constructor(private http: HttpClient) { }
 
-  getClientes(): Observable<ProductoModel[]> {
-    return this.http.get<ProductoModel[]>('http://127.0.0.1:5000/getClientes');
+  getProductos(): Observable<ProductoModel[]> {
+    return this.http.get<ProductoModel[]>('http://127.0.0.1:5000/getProductos');
   }
 
-  getCliente(id: string): Observable<ProductoModel> {
+  getProducto(id: string): Observable<ProductoModel> {
     return this.http.get<ProductoModel>('http://127.0.0.1:5000/getCliente?id=' + id);
 
   }
 
-  deleteCliente(id: string) {
-    const url = `${'http://127.0.0.1:5000/deleteCliente'}/${id}`;
+  deleteProducto(id: string) {
+    const url = `${'http://127.0.0.1:5000/deleteProducto'}/${id}`;
     // const headers = new HttpHeaders ({'Content-Type': 'application/json'});
     // const params = new HttpParams().set('cuit', cuit);
     return this.http.delete(url)
@@ -30,9 +30,13 @@ export class ProductoService {
     ); //.toPromise();
   }
 
-  addCliente(cliente: ProductoModel) {
+  addProducto(producto: ProductoModel) {
     const headers = new HttpHeaders({'Content-Type':  'application/json'});
-    return this.http.post('http://127.0.0.1:5000/addCliente', cliente).toPromise();
+    return this.http.post('http://127.0.0.1:5000/addProducto', producto)
+    .subscribe(
+      result => console.log(result),
+      err => console.error(err)
+    ); //.toPromise();
     // .then(function(value) {
     //   console.dir(value);
     // }), (error) => {
@@ -41,18 +45,23 @@ export class ProductoService {
 
   }
 
-  updateCliente(pro: ProductoModel) {
-    let bodyObj = {
-      'id': pro.id,
-      'descripcion': pro.descripcion,
-      'precioU': pro.precioU,
-      'cantMin': pro.cantMin,
-      'stock': pro.stock
-    };
+  updateProducto(pro: ProductoModel) {
+    // let bodyObj = {
+    //   'id': pro.id,
+    //   'descripcion': pro.descripcion,
+    //   'precioU': pro.precioU,
+    //   'cantMin': pro.cantMin,
+    //   'stock': pro.stock,
+    //   'cuit': pro.cuit,
+    // };
 
-    const headers = new HttpHeaders ({'Content-Type': 'application/json'});
-    return this.http.put('http://127.0.0.1:5000/updateCliente',
-    JSON.stringify(bodyObj), {headers}).subscribe();
+    // const headers = new HttpHeaders ({'Content-Type': 'application/json'});
+    return this.http.put('http://127.0.0.1:5000/updateProducto',
+    pro)
+    .subscribe(
+      result => console.log(result),
+      err => console.error(err)
+    );
   }
 
 }

@@ -5,7 +5,7 @@ export class ProductoModel {
     public stock: number;
     public cantMin: number;
     public cuit: string;
-  
+
     constructor(id: number, descripcion: string , precioU: number, stock: number, cantMin: number, cuit: string) {
       this.cuit = cuit;
       this.descripcion = descripcion;

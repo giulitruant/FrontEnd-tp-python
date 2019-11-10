@@ -17,6 +17,13 @@
           <li><a [routerLink]="['/addCliente/:dni/:nombre/:apellido/:tel/:direccion/:email']" routerLinkActive="router-link-active"  >Agregar Cliente</a></li><!--routerLink="/addCliente"-->
         </ul>
     </li>
+    <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" data-toggle="dropdown">Producto<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/producto">Lista</a></li>
+            <li><a [routerLink]="['/addProducto/:id/:desc/:precioU/:cantStock/:cantMin/:cuit']" routerLinkActive="router-link-active"  >Agregar Producto</a></li><!--routerLink="/addCliente"-->
+          </ul>
+      </li>
   </ul>
 </nav>
 <br>

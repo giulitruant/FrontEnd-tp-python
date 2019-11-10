@@ -11,6 +11,8 @@ import { MaterialModule } from './material.module';
 import {FormsModule} from '@angular/forms';
 import { AddClienteComponent } from './add-cliente/add-cliente.component';
 import { ListaClienteComponent } from './lista-cliente/lista-cliente.component';
+import { ListaProductoComponent } from './lista-producto/lista-producto.component';
+import { AddProductoComponent } from './add-producto/add-producto.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ListaClienteComponent } from './lista-cliente/lista-cliente.component';
     ListaProveedorComponent,
     AddProveedorComponent,
     AddClienteComponent,
-    ListaClienteComponent
+    ListaClienteComponent,
+    ListaProductoComponent,
+    AddProductoComponent
   ],
   imports: [
     BrowserModule,

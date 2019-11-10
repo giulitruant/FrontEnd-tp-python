@@ -6,6 +6,8 @@ import { ListaProveedorComponent } from './lista-proveedor/lista-proveedor.compo
 import { AddProveedorComponent } from './add-proveedor/add-proveedor.component';
 import { ListaClienteComponent } from './lista-cliente/lista-cliente.component';
 import { AddClienteComponent } from './add-cliente/add-cliente.component';
+import { ListaProductoComponent } from './lista-producto/lista-producto.component';
+import { AddProductoComponent } from './add-producto/add-producto.component';
 
 
 const routes: Routes = [
@@ -13,7 +15,9 @@ const routes: Routes = [
   { path: 'proveedor', component: ListaProveedorComponent },
   { path: 'addProveedor/:cuit/:nombre/:apellido/:direccion/:email/:telefono', component: AddProveedorComponent },
   { path: 'cliente', component: ListaClienteComponent },
-  { path: 'addCliente/:dni/:nombre/:apellido/:direccion/:email/:telefono', component: AddClienteComponent }
+  { path: 'addCliente/:dni/:nombre/:apellido/:direccion/:email/:telefono', component: AddClienteComponent },
+  { path: 'producto', component: ListaProductoComponent },
+  { path: 'addProducto/:id/:desc/:precioU/:cantStock/:cantMin/:cuit', component: AddProductoComponent }
 ];
 
 @NgModule({
