@@ -8,6 +8,7 @@ import { ListaClienteComponent } from './lista-cliente/lista-cliente.component';
 import { AddClienteComponent } from './add-cliente/add-cliente.component';
 import { ListaProductoComponent } from './lista-producto/lista-producto.component';
 import { AddProductoComponent } from './add-producto/add-producto.component';
+import { FacturaComponent } from './factura/factura.component';
 
 
 const routes: Routes = [
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'cliente', component: ListaClienteComponent },
   { path: 'addCliente/:dni/:nombre/:apellido/:direccion/:email/:telefono', component: AddClienteComponent },
   { path: 'producto', component: ListaProductoComponent },
-  { path: 'addProducto/:id/:desc/:precioU/:cantStock/:cantMin/:cuit', component: AddProductoComponent }
+  { path: 'addProducto/:id/:desc/:precioU/:cantStock/:cantMin/:cuit', component: AddProductoComponent },
+  { path: 'factura', component: FacturaComponent }
 ];
 
 @NgModule({

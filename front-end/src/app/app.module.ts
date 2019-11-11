@@ -13,6 +13,7 @@ import { AddClienteComponent } from './add-cliente/add-cliente.component';
 import { ListaClienteComponent } from './lista-cliente/lista-cliente.component';
 import { ListaProductoComponent } from './lista-producto/lista-producto.component';
 import { AddProductoComponent } from './add-producto/add-producto.component';
+import { FacturaComponent } from './factura/factura.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AddProductoComponent } from './add-producto/add-producto.component';
     AddClienteComponent,
     ListaClienteComponent,
     ListaProductoComponent,
-    AddProductoComponent
+    AddProductoComponent,
+    FacturaComponent
   ],
   imports: [
     BrowserModule,

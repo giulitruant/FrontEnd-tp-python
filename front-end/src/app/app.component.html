@@ -24,9 +24,13 @@
             <li><a [routerLink]="['/addProducto/:id/:desc/:precioU/:cantStock/:cantMin/:cuit']" routerLinkActive="router-link-active"  >Agregar Producto</a></li><!--routerLink="/addCliente"-->
           </ul>
       </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/factura">Facturacion</a>
+      </li>
   </ul>
 </nav>
 <br>
+<!-- <button name="btnPDF" (click)="descargarPDF()">Descargar PDF</button> -->
 <div class="container-fluid">
 <router-outlet></router-outlet>
 </div>
