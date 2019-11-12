@@ -1,24 +1,58 @@
 import { Component, ViewChild, OnInit, ElementRef } from '@angular/core';
 import jsPDF from 'jspdf';
-// import * as html2canvas from 'html2canvas';
+import { FacturaService } from '../service/factura.service';
+//import { FacturaModel } from '../model/factura';
 
 @Component({
   selector: 'app-factura',
   templateUrl: './factura.component.html',
-  styleUrls: ['./factura.component.css']
+  styleUrls: ['./factura.component.css'],
+  providers: [FacturaService]
 })
 export class FacturaComponent implements OnInit {
-
-  constructor() { }
+  factura: boolean = false;
+  productos: any;
+  fechaFactura: string;
+  razonSocial: string;
+  domicilio: string;
+  telefono: string;
+  dni: string;
+  importeTotal: string;
+  nroFact: string;
+  tipoFactura: string;
+  constructor(private facturaService: FacturaService) { }
 
   ngOnInit() {
-
+    this.factura = false;
   }
 
   @ViewChild('contenido', {static: false}) content: ElementRef;
 
+  BuscarSolicitud(nroSolicitud: string) {
+    let facturacion;
+    this.facturaService.addCompra(nroSolicitud).subscribe(
+      (data) => { //success
+        debugger;
+        this.productos = data['producto'];
+        this.dni = data['dni'];
+        this.domicilio = data['domicilioCli'];
+        this.fechaFactura = data['fecha'];
+        this.importeTotal = data['importeTotal'];
+        this.nroFact = (data['nroFactura']).toString();
+        this.razonSocial = data['razonSocialCli'];
+        this.tipoFactura = data['tipoFactura'];
+        console.dir(data);
+      },
+      (error) => { //error
+        console.error(error);
+      });
+      debugger;
+
+    this.factura = true;
+
+  }
+
   generarPDF() {
-    debugger;
 
     const doc = new jsPDF();
     // doc.text('Hello world!', 10, 10);

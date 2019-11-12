@@ -28,42 +28,23 @@
     <div class="row">
       <div class="form-group col-sm-4">
           <label for="lblStock">stock:</label>
-          <input class="form-control col-sm-5" name="stock" [(ngModel)]="producto.stock" placeholder="stock" required>
+          <input class="form-control col-sm-5" type="number" name="stock" [(ngModel)]="producto.stock" placeholder="stock" required>
       </div>
       <br>
       <div class="form-group col-sm-4">
           <label for="email">Email:</label>
-          <input type="email" class="form-control col-sm-5" name="email" [(ngModel)]="producto.cantMin" placeholder="cantidad minima">
+          <input type="number" class="form-control col-sm-5" name="cantidad minima" [(ngModel)]="producto.cantMin" placeholder="cantidad minima">
       </div>
       <br>
-      <!-- <div class="form-group col-sm-4">
-          <label for="direccion">Direccion:</label>
-          <input type="direccion" class="form-control col-sm-5" name="direccion" [(ngModel)]="producto.direccion" placeholder="direccion" required>
-      </div> -->
+      <div class="form-group col-sm-4">
+          <label for="lblCuit">Cuit del proveedor:</label>
+          <input class="form-control col-sm-5" type="number" name="cuit" [(ngModel)]="producto.cuit" placeholder="cuit" required>
+      </div>
     </div>
       <div class="btn">
-          <button type="button" [routerLink]="['/proveedor']" routerLinkActive="router-link-active"  class="btn btn-info">Cancelar</button>
-          <button  type="submit" class="btn btn-info">Guardar</button>
+        <button type="button" [routerLink]="['/proveedor']" routerLinkActive="router-link-active"  class="Cancelar btn btn-info">Cancelar</button>
+        <button  type="submit" class="btn btn-info">Guardar</button>
       </div>
       </form>
   </mat-card-content>
 </mat-card>
-<!--
-<div ng-if="popupProv">
-  <h1 mat-dialog-title>Favorite Animal</h1>
-<div mat-dialog-content>
-  No se pudo agregar el proveedor
-   <ul>
-    <li>
-      <span *ngIf="data.animal === 'panda'">&#10003;</span> Panda
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'unicorn'">&#10003;</span> Unicorn
-    </li>
-    <li>
-      <span *ngIf="data.animal === 'lion'">&#10003;</span> Lion
-    </li>
-  </ul>
-  <button mat-button mat-dialog-close>Ok</button>
-</div>-->
-

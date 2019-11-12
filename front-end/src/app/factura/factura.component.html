@@ -1,47 +1,123 @@
+<div class="filtro">
+  <h1>Filtros de Busqueda de Solicitud</h1>
+  <div class="row">
+    <div class="col-md-12">
+        <a>Solicitud: <input #nroSolicitud matInput placeholder="nro solicitud" type="number" pattern="[0-9]*" name="nroSolicitud" id="nroSolicitud"/></a>
+    <!-- </div>
+    <div class="col-md-4"> -->
+      <br>
+      <br>
+        <button (click)="BuscarSolicitud(nroSolicitud.value)" class="btn btn-info">Buscar solicitud</button>
+    </div>
+    <!-- <div class="col-md-4"></div>
+  </div> -->
+
+</div>
+
+<div *ngIf="factura">
 <div id="contenido" #contenido>
 <div class="album py-5" align="center">
   <div class="container">
-
-    <h2>Postres</h2>
-
     <div class="row">
+      <div class="col-md-4">
+        <!-- <div class="card mb-4 shadow-sm"> -->
+          <!-- <div class="card-body"> -->
+            <ul>
+              <li><span>DAMARFU S.A</span></li>
+              <li><span>Echeverria 1392 Local</span></li>
+              <li><span>Belgrano, Ciudad de Buenos Aires</span></li>
+              <li><span>Tel.: 011-47817077</span></li>
+              <li><span>Responsable Inscripto</span></li>
+            </ul>
+          </div>
 
       <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <!-- <img src="{{imagen1}}" title="Torta de Chocolate" alt="Torta de Chocolate"> -->
-          IMAGEN_1
-          <div class="card-body">
-            <p class="card-text">Torta de Chocolate</p>
-          </div>
-        </div>
+        <!-- <div class="card mb-4 shadow-sm">
+          <div class="card-body"> -->
+            <p class="card-text">FACTURA B</p>
+          <!-- </div>
+        </div> -->
       </div>
 
       <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <!-- <img src="{{imagen2}}" title="Pie de Manzana" alt="Pie de Manzana"> -->
-          IMAGEN_2
-          <div class="card-body">
-            <p class="card-text">Pie de Manzana</p>
-          </div>
-        </div>
+        <!-- <div class="card mb-4 shadow-sm">
+          <div class="card-body"> -->
+            <ul>
+              <li><span>Fecha: {{fechaFactura}}</span></li>
+              <li><span>CUIT: 33708543409</span></li>
+              <li><span>Belgrano, Ciudad de Buenos Aires</span></li>
+              <li><span>Ingresos brutos: 9013825659</span></li>
+              <li><span>Inicio de actividades: 01/11/2003</span></li>
+          </ul>
+          <!-- </div>
+        </div> -->
       </div>
-
-      <div class="col-md-4">
-        <div class="card mb-4 shadow-sm">
-          <!-- <img src="{{imagen3}}" title="Arroz con Leche" alt="Arroz con Leche"> -->
-          IMAGEN_3
-          <div class="card-body">
-            <p class="card-text">Arroz con Leche</p>
-          </div>
-        </div>
-      </div>
-
 
     </div>
+    <div class="row">
+        <div class="col-md-12">
+      <a style="text-align: center;"><h3>Cliente</h3></a>
+    </div>
+    </div>
+    <div class="row cliente">
+        <div class="col-md-4">
+              <ul>
+                <li><span>Razón social: {{razonSocial}}</span></li>
+                <li><span>Domicilio: {{domicilio}}</span></li>
+              </ul>
+        </div>
+        <div class="col-md-4">
+        </div>
+        <div class="col-md-4">
+          <h3></h3>
+            <ul>
+                <li><span>Teléfono: {{telefono}}</span></li>
+                  <li><span>DNI:: {{dni}}</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="row producto">
+
+    </div>
+    <div class="row importeFinal">
+      <mat-toolbar>
+
+      </mat-toolbar>
+
+      <table class="table table-hover">
+          <thead>
+            <tr class="table-secondary">
+              <th scope="col">cantidad</th>
+              <th scope="col">codigo</th>
+              <th scope="col">descripcion</th>
+              <th scope="col">precioU</th>
+              <th scope="col">importe</th>
+              <!-- <th scope="col">direccion</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of productos">
+                <td>{{ item.cantidad }}</td>
+                <td>{{ item.codigo }}</td>
+                <td>{{ item.descripcion }}</td>
+                <td>{{ item.precioU }}</td>
+                <td>{{ item.importe }}</td>
+            </tr>
+          </tbody>
+        </table>
+
+      </div>
+      <div class="row">
+          <div class="col-md-12 total">
+            {{importeTotal}}
+            </div>
+      </div>
 
   </div>
 
   <button (click)="generarPDF()" class="btn btn-info">Crear PDF</button>
 
+</div>
 </div>
 </div>

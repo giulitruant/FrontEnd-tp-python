@@ -24,7 +24,7 @@
         <td>{{ item.cantMin }}</td>
         <td>{{ item.cuit }}</td>
         <button mat-button (click)="editProducto(item)">editar</button>
-        <button mat-button (click)="deleteProducto(item.cuit)">eliminar</button>
+        <button mat-button (click)="deleteProducto(item.id)">eliminar</button>
     </tr>
   </tbody>
 </table>
