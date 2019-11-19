@@ -64,6 +64,7 @@ export class AddClienteComponent implements OnInit {
       }
     }
   }
+  this.router.navigate(['/cliente']);
 }
 
 }

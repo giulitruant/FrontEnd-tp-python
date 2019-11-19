@@ -58,5 +58,6 @@ export class AddProductoComponent implements OnInit {
         this.popupProv = true;
         this.message = 'Verificar los campos obligatorios';
       }
+      this.router.navigate(['/producto']);
     }
 }

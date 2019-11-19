@@ -22,12 +22,15 @@ export class ListaProductoComponent implements OnInit {
   }
 
   getAllProductos() {
+    debugger;
     this.productoService.getProductos()
     .subscribe(
       (data) => { // Success
+        debugger;
       this.productos = data['producto'];
       },
       (error) => { //error
+        debugger;
         console.error(error);
       });
     }

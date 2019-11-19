@@ -15,8 +15,8 @@ export class FacturaService {
   // }
 
 
-  addCompra(solicitud: string): Observable<FacturaModel> {
-    return this.http.get<FacturaModel>('http://127.0.0.1:5000/EmitirFactura?solicitud=' + solicitud);
+  addCompra(solicitud: string): Observable<any> {
+    return this.http.post('http://127.0.0.1:5000/EmitirFactura?solicitud', solicitud);
     //.subscribe();
     //.toPromise();
   }

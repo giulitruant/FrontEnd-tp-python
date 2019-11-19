@@ -49,18 +49,6 @@ export class AddProveedorComponent implements OnInit {
         this.popupProv = true;
         this.message = 'Verificar los campos obligatorios';
       }
+      this.router.navigate(['/proveedor']);
     }
-    // public getProveedor(cuit: string) {
-
-    //    this.createProveedorService.getProveedor(cuit).subscribe(value => {
-    //      console.dir(value);
-    //      this.proveedor = value;
-    //    });
-    //    debugger;
-    //    console.dir(this.proveedor);
-    //   //  this.proveedor =
-    //   // if(value != undefined){
-    //   //   this.proveedor = value;
-    //   // }
-    // }
 }
