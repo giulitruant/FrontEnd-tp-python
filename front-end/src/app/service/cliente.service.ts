@@ -32,7 +32,7 @@ export class ClienteService {
 
   addCliente(cliente: ClienteModel) {
     const headers = new HttpHeaders({'Content-Type':  'application/json'});
-    return this.http.post('http://127.0.0.1:5000/addCliente', cliente).toPromise();
+    return this.http.post('http://127.0.0.1:5000/addCliente', cliente, {headers}).subscribe();
     // .then(function(value) {
     //   console.dir(value);
     // }), (error) => {

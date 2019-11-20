@@ -1,18 +1,64 @@
-<div class="filtro">
-  <h1>Filtros de Busqueda de Solicitud</h1>
-  <div class="row">
-    <div class="col-md-12">
-        <a>Solicitud: <input #nroSolicitud matInput placeholder="nro solicitud" type="number" pattern="[0-9]*" name="nroSolicitud" id="nroSolicitud"/></a>
-    <!-- </div>
-    <div class="col-md-4"> -->
-      <br>
-      <br>
-        <button (click)="BuscarSolicitud(nroSolicitud.value)" class="btn btn-info">Buscar solicitud</button>
-    </div>
-    <!-- <div class="col-md-4"></div>
-  </div> -->
 
-</div>
+
+            <form #Facturacion="ngForm" (ngSubmit)="onSubmit(Facturacion)">
+            <div class="form-row">
+                <div class="form-group col">
+                    <label>Banco</label>
+                    <select class="form-control" name="banco" [(ngModel)]="Facturacion.nom_tarjeta" value=" ">
+                        <option value=" "></option>
+                        <option value="Santander Rio">Santander Rio</option>
+                        <option value="Macro">Macro</option>
+                        <option value="Galicia">Galicia</option>
+                    </select>
+                </div>
+                <div class="form-group col-2">
+                    <label>Nro Solicitud</label>
+                    <input type="number" name="solicitud" class="form-control" required [(ngModel)]="Facturacion.solicitud"/>
+                </div>
+                <div class="form-group col-3">
+                    <label>Tipo Pago</label>
+                    <select class="form-control" name="banco" required [(ngModel)]="Facturacion.tipo_pago">
+                        <option value=""></option>
+                        <option value="Efectivo">Efectivo</option>
+                        <option value="Tarjeta">Tarjeta</option>
+                    </select>
+                </div>
+                <div class="form-group col-2">
+                    <label>Tipo Factura</label>
+                    <select class="form-control" name="banco" required [(ngModel)]="Facturacion.tipo">
+                        <option value=""></option>
+                        <option value="A">A</option>
+                        <option value="B">B</option>
+                        <option value="c">C</option>
+                    </select>
+                </div>
+            </div>
+            <!-- <div class="form-group">
+                <label>Email</label>
+                <input type="text" name="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="Facturacion.email" />
+            </div> -->
+            <div class="form-row">
+                <div class="form-group col-4">
+                    <label>nro Tarjeta</label>
+                    <input type="number" name="nro_tarjeta" class="form-control" value=" " [(ngModel)]="Facturacion.nro_tarjeta"/>
+                </div>
+                <div class="form-group col-4">
+                    <label>cuenta</label>
+                    <input type="number" name="cuenta" class="form-control" value=" " [(ngModel)]="Facturacion.cuenta"/>
+                </div>
+                <div class="form-group col-2">
+                    <label>cantidad de cuotas</label>
+                    <input type="number" name="cuotas" class="form-control" value=" " [(ngModel)]="Facturacion.cuotas"/>
+                </div>
+            </div>
+            <!-- <div class="form-group form-check">
+
+            </div> -->
+            <div class="text-center btn">
+                <button type="submit" class="btn btn-info">Cargar factura</button>
+                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+            </div>
+        </form>
 
 <div *ngIf="factura">
 <div id="contenido" #contenido>
@@ -34,7 +80,7 @@
       <div class="col-md-4">
         <!-- <div class="card mb-4 shadow-sm">
           <div class="card-body"> -->
-            <p class="card-text">FACTURA B</p>
+            <p class="card-text">FACTURA {{fact.tipoFactura}}</p>
           <!-- </div>
         </div> -->
       </div>
@@ -43,7 +89,7 @@
         <!-- <div class="card mb-4 shadow-sm">
           <div class="card-body"> -->
             <ul>
-              <li><span>Fecha: {{fechaFactura}}</span></li>
+              <li><span>Fecha: {{fact.fecha}}</span></li>
               <li><span>CUIT: 33708543409</span></li>
               <li><span>Belgrano, Ciudad de Buenos Aires</span></li>
               <li><span>Ingresos brutos: 9013825659</span></li>
@@ -62,8 +108,8 @@
     <div class="row cliente">
         <div class="col-md-4">
               <ul>
-                <li><span>Razón social: {{razonSocial}}</span></li>
-                <li><span>Domicilio: {{domicilio}}</span></li>
+                <li><span>Razón social: {{fact.razonSocialCli}}</span></li>
+                <li><span>Domicilio: {{fact.domicilioCli}}</span></li>
               </ul>
         </div>
         <div class="col-md-4">
@@ -71,8 +117,8 @@
         <div class="col-md-4">
           <h3></h3>
             <ul>
-                <li><span>Teléfono: {{telefono}}</span></li>
-                  <li><span>DNI:: {{dni}}</span></li>
+                <li><span>Teléfono: {{fact.telefonoCli}}</span></li>
+                  <li><span>DNI:: {{fact.dni}}</span></li>
             </ul>
         </div>
     </div>
@@ -98,7 +144,7 @@
           </thead>
           <tbody>
             <tr *ngFor="let item of productos">
-                <td>{{ item.cantidad }}</td>
+                <td>{{ item.cant }}</td>
                 <td>{{ item.codigo }}</td>
                 <td>{{ item.descripcion }}</td>
                 <td>{{ item.precioU }}</td>
@@ -110,7 +156,7 @@
       </div>
       <div class="row">
           <div class="col-md-12 total">
-            {{importeTotal}}
+            {{fact.importeTotal}}
             </div>
       </div>
 
