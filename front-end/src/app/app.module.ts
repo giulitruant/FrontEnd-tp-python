@@ -14,6 +14,7 @@ import { ListaClienteComponent } from './lista-cliente/lista-cliente.component';
 import { ListaProductoComponent } from './lista-producto/lista-producto.component';
 import { AddProductoComponent } from './add-producto/add-producto.component';
 import { FacturaComponent } from './factura/factura.component';
+import { AddSolicitudComponent } from './add-solicitud/add-solicitud.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { FacturaComponent } from './factura/factura.component';
     ListaClienteComponent,
     ListaProductoComponent,
     AddProductoComponent,
-    FacturaComponent
+    FacturaComponent,
+    AddSolicitudComponent
   ],
   imports: [
     BrowserModule,
