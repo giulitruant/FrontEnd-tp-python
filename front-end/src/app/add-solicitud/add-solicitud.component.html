@@ -3,9 +3,9 @@
 <mat-card>
   <mat-card-header>
       Datos de la Solicitud
-      <div *ngIf="!isValid" class="alert alert-danger" role="alert">
-        <strong>{{message}}</strong>
-      </div>
+      <!--<div *ngIf="!isValid" class="alert alert-danger" role="alert">
+         <strong>{{message}}</strong>
+      </div>-->
   </mat-card-header>
   <mat-card-content>
           <form #Solicitud="ngForm" (ngSubmit)="onSubmit(Solicitud)">
@@ -13,14 +13,13 @@
       <div class="form-group col-sm-4">
           <label>DNI:</label>
           <input class="form-control col-sm-5" type="number" pattern="[0-9]*" name="dni" id="dni"
-          placeholder="xx-xxxxxxx-x"  placeholder="Dni del cliente" required [(ngModel)]="proveedor.dni">
+          placeholder="xx-xxxxxxx-x"  placeholder="Dni del cliente" required [(ngModel)]="Solicitud.dni">
       </div>
-      <div class="form-group col-sm-4">
+      <!-- <div class="form-group col-sm-4">
           <label for="lblnombre">Fecha:</label>
-          <input class="form-control col-sm-5" name="fecha" [(ngModel)]="proveedor.fecha" placeholder="nombre" required>
-      </div>
+          <input class="form-control col-sm-5" name="fecha" [(ngModel)]="Solicitud.fecha" placeholder="nombre" required>
+      </div> -->
       <br>
-    </div>
     </div>
       <div class="btn">
           <button type="button" [routerLink]="['/solicitud']" routerLinkActive="router-link-active"  class="btn btn-info">Cancelar</button>
@@ -29,4 +28,37 @@
       </form>
   </mat-card-content>
 </mat-card>
+
+
+<div id="content" #content>
+  <div class="container table-responsive-sm">
+    <div style="text-align-last:center">
+  <h2>Listado de productos</h2>
+  </div>
+  <br>
+  <table class="table table-hover">
+    <thead>
+      <tr class="table-secondary">
+        <th scope="col">id</th>
+        <th scope="col">descripcion</th>
+        <th scope="col">precio unitario</th>
+        <th scope="col">cantidad minima</th>
+        <th scope="col">stock</th>
+        <th scope="col">cuit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of productos">
+          <td>{{ item.id }}</td>
+          <td>{{ item.descripcion }}</td>
+          <td>{{ item.precioU }}</td>
+          <td>{{ item.stock }}</td>
+          <td>{{ item.cantMin }}</td>
+          <td>{{ item.cuit }}</td>
+          <button mat-button (click)="agregarProducto(item)">agregar</button>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+  </div>
 

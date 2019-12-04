@@ -1,8 +1,7 @@
 
-
             <form #Facturacion="ngForm" (ngSubmit)="onSubmit(Facturacion)">
             <div class="form-row">
-                <div class="form-group col">
+                 <!--<div class="form-group col">
                     <label>Banco</label>
                     <select class="form-control" name="banco" [(ngModel)]="Facturacion.nom_tarjeta" value=" ">
                         <option value=" "></option>
@@ -10,12 +9,12 @@
                         <option value="Macro">Macro</option>
                         <option value="Galicia">Galicia</option>
                     </select>
-                </div>
-                <div class="form-group col-2">
+                </div> -->
+                <div class="form-group col">
                     <label>Nro Solicitud</label>
                     <input type="number" name="solicitud" class="form-control" required [(ngModel)]="Facturacion.solicitud"/>
                 </div>
-                <div class="form-group col-3">
+                <div class="form-group col-2">
                     <label>Tipo Pago</label>
                     <select class="form-control" name="banco" required [(ngModel)]="Facturacion.tipo_pago">
                         <option value=""></option>
@@ -23,7 +22,7 @@
                         <option value="Tarjeta">Tarjeta</option>
                     </select>
                 </div>
-                <div class="form-group col-2">
+                <div class="form-group col-3">
                     <label>Tipo Factura</label>
                     <select class="form-control" name="banco" required [(ngModel)]="Facturacion.tipo">
                         <option value=""></option>
@@ -33,12 +32,8 @@
                     </select>
                 </div>
             </div>
-            <!-- <div class="form-group">
-                <label>Email</label>
-                <input type="text" name="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }" [(ngModel)]="Facturacion.email" />
-            </div> -->
-            <div class="form-row">
-                <div class="form-group col-4">
+           <!-- <div class="form-row">
+                 <div class="form-group col-4">
                     <label>nro Tarjeta</label>
                     <input type="number" name="nro_tarjeta" class="form-control" value=" " [(ngModel)]="Facturacion.nro_tarjeta"/>
                 </div>
@@ -50,13 +45,13 @@
                     <label>cantidad de cuotas</label>
                     <input type="number" name="cuotas" class="form-control" value=" " [(ngModel)]="Facturacion.cuotas"/>
                 </div>
-            </div>
+            </div>-->
             <!-- <div class="form-group form-check">
 
             </div> -->
             <div class="text-center btn">
                 <button type="submit" class="btn btn-info">Cargar factura</button>
-                <button class="btn btn-secondary" type="reset" (click)="onReset()">Cancel</button>
+                <button class="btn btn-secondary" type="reset" [routerLink]="['/proveedor']">Cancel</button>
             </div>
         </form>
 
@@ -156,13 +151,13 @@
       </div>
       <div class="row">
           <div class="col-md-12 total">
-            {{fact.importeTotal}}
+            <a>Total: {{fact.importeTotal}}</a>
             </div>
       </div>
 
   </div>
 
-  <button (click)="generarPDF()" class="btn btn-info">Crear PDF</button>
+  <button (click)="generarPDF()" class="btn btn-info">Generar PDF</button>
 
 </div>
 </div>

@@ -1,8 +1,8 @@
-import {Component, Inject, ViewChild, OnInit, ElementRef} from '@angular/core';
+import {Component, ViewChild, OnInit, ElementRef} from '@angular/core';
 import jsPDF from 'jspdf';
 import { FacturaService } from '../service/factura.service';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import { JsonPipe } from '@angular/common';
+import {FormBuilder, Validators} from '@angular/forms';
+import { Router } from '@angular/router';
 
 export interface Factura {
   producto: any[];
@@ -38,7 +38,7 @@ export class FacturaComponent implements OnInit {
   nroFact: string;
   tipoFactura: string;
   constructor(private facturaService: FacturaService,
-              private fb: FormBuilder) { }
+              private fb: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.factura = false;
@@ -51,9 +51,6 @@ export class FacturaComponent implements OnInit {
       cuenta: ['', Validators.requiredTrue],
       cuotas: ['', Validators.minLength(1)]
   }
-  // , {
-  //     validator: MustMatch('password', 'confirmPassword')
-  // }
   );
   }
 
@@ -63,7 +60,6 @@ export class FacturaComponent implements OnInit {
 
   //BuscarSolicitud
   onSubmit(fac: any) { //FormBuilder
-    debugger;
     this.submitted = true;
     let facturacion;
 
@@ -76,10 +72,6 @@ export class FacturaComponent implements OnInit {
       cuenta: fac.cuenta === undefined ? " " : fac.cuenta,
       cuotas: fac.cuotas === undefined ? " " : fac.cuotas
     });
-    // if (this.Facturacion.invalid) {
-    //   this.factura = false;
-    //   return;
-    // }
 
     this.rta = this.facturaService.addCompra(json)
     .then(
@@ -91,29 +83,12 @@ export class FacturaComponent implements OnInit {
       },
       msg => { // Error
         console.dir(msg);
-      // reject(msg);
       }
     );
-
-
-
-    // if ( this.rta.dni !== undefined ) {
-    //   debugger;
-    //   this.productos = this.rta.producto;
-    //   this.dni = this.rta.dni;
-    //   this.domicilio = this.rta.domicilioCli;
-    //   this.fechaFactura = this.rta.fecha;
-    //   this.nroFact = this.rta.nroFactura;
-    //   this.tipoFactura = this.rta.tipoFactura;
-    //   this.telefono = this.rta.telefinoCli;
-    //   this.importeTotal = this.rta.importeTotal;
-    // }
     this.factura = true;
-
    }
 
   onReset() {
-    debugger;
     this.submitted = false;
     this.Facturacion.reset();
 }
@@ -121,8 +96,6 @@ export class FacturaComponent implements OnInit {
   generarPDF() {
 
     const doc = new jsPDF();
-    // doc.text('Hello world!', 10, 10);
-    // doc.save('a4.pdf');
 
     let specialElementHandlers = {
       '#editor': function(element, renderer) {
@@ -141,17 +114,4 @@ export class FacturaComponent implements OnInit {
   }
 }
 
-
-    // html2canvas(document.getElementById('contenido'), {
-    //   // Opciones
-    //   allowTaint: true,
-    //   useCORS: false,
-    //   // Calidad del PDF
-    //   scale: 1
-    // }).then( function(canvas) {
-    //   var img = canvas.toDataURL("image/png");
-    //   var doc = new jsPDF();
-    //   doc.addImage(img,'PNG',7, 20, 195, 105);
-    //   doc.save('postres.pdf');
-    // });
 
