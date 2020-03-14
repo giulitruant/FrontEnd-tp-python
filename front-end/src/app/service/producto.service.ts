@@ -31,37 +31,23 @@ export class ProductoService {
   }
 
   addProducto(producto: ProductoModel) {
-    const headers = new HttpHeaders({'Content-Type':  'application/json'});
+
     return this.http.post('http://127.0.0.1:5000/addProducto', producto)
-    .subscribe(
-      result => console.log(result),
-      err => console.error(err)
-    ); //.toPromise();
-    // .then(function(value) {
-    //   console.dir(value);
-    // }), (error) => {
-    //   console.dir('Promise rejected with ' + JSON.stringify(error));
-    // };
+    // .subscribe(
+    //   result => console.log(result),
+    //   err => console.error(err)
+    // );
 
   }
 
   updateProducto(pro: ProductoModel) {
-    // let bodyObj = {
-    //   'id': pro.id,
-    //   'descripcion': pro.descripcion,
-    //   'precioU': pro.precioU,
-    //   'cantMin': pro.cantMin,
-    //   'stock': pro.stock,
-    //   'cuit': pro.cuit,
-    // };
-
-    // const headers = new HttpHeaders ({'Content-Type': 'application/json'});
+    
     return this.http.put('http://127.0.0.1:5000/updateProducto',
     pro)
-    .subscribe(
-      result => console.log(result),
-      err => console.error(err)
-    );
+    // .subscribe(
+    //   result => console.log(result),
+    //   err => console.error(err)
+    // );
   }
 
 }

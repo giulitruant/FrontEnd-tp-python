@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ProductoModel } from '../Model/producto';
 import { ProductoService } from '../service/producto.service';
 import { Router, ActivatedRoute, Params } from '@angular/router';
-
+import { resolve } from 'url';
+ 
 @Component({
   selector: 'app-add-producto',
   templateUrl: './add-producto.component.html',
@@ -42,9 +43,40 @@ export class AddProductoComponent implements OnInit {
   onSubmit(value: ProductoModel) {
     if (this.isValid) {
       if (this.edicion) {
-        this.rta = this.productoService.updateProducto(value);
+        // this.rta = 
+        this.productoService.updateProducto(value).toPromise().then((val) => {
+          console.log(val);
+        })
+        .then((val) => console.log(val))
+        .catch((err) => console.error(err));
+
       } else {
-        this.rta = this.productoService.addProducto(this.producto);
+        this.productoService.addProducto(this.producto).toPromise()
+        .then((res: any) => {
+          // Success
+          this.rta = res
+
+          console.log(res.json());
+
+
+          // Si tengo que mapear los datos 
+
+          // this.data = res.map((res: any) => {
+          //   return new Post(
+          //     res.userId,
+          //     res.id,
+          //     res.title,
+          //     res.body
+          //   );
+          // });
+          //resolve();
+        },
+        err => {
+          // Error
+          //reject(err);
+        }
+        );
+        
       }
       console.dir(this.rta);
       if (<string>this.message === "ok") {

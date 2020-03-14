@@ -15,6 +15,8 @@ import { ListaProductoComponent } from './lista-producto/lista-producto.componen
 import { AddProductoComponent } from './add-producto/add-producto.component';
 import { FacturaComponent } from './factura/factura.component';
 import { AddSolicitudComponent } from './add-solicitud/add-solicitud.component';
+import { DialogComponent } from './dialog/dialog.component';
+import { SnackBarComponent } from './snack-bar/snack-bar.component';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { AddSolicitudComponent } from './add-solicitud/add-solicitud.component';
     ListaProductoComponent,
     AddProductoComponent,
     FacturaComponent,
-    AddSolicitudComponent
+    AddSolicitudComponent,
+    DialogComponent,
+    SnackBarComponent
   ],
   imports: [
     BrowserModule,
